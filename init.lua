@@ -217,6 +217,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Gopls
 -- NOTE: This is required fist `git clone https://github.com/neovim/nvim-lspconfig ~/.config/nvim/pack/nvim/start/nvim-lspconfig`
+-- NOTE: And this `go install golang.org/x/tools/gopls@latest`
 require('lspconfig').gopls.setup {}
 
 -- [[ Configure and install plugins ]]
