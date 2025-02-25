@@ -242,6 +242,34 @@ require('lazy').setup({
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
 
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+      'MunifTanjim/nui.nvim',
+      -- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
+    },
+    config = function()
+      require('neo-tree').setup {
+        use_libuv_file_watcher = true, -- Enable libuv file watcher
+        filesystem = {
+          filtered_items = {
+            visible = true, -- Show hidden files by default
+            hide_dotfiles = false, -- Show dotfiles (e.g., .gitignore)
+            hide_gitignored = false, -- Do not hide files in .gitignore
+            hide_by_name = {
+              -- You can add specific files or directories to hide here
+              -- Example: hide "node_modules" folder
+              -- "node_modules",
+            },
+          },
+        },
+      }
+    end,
+  },
+
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
