@@ -232,6 +232,8 @@ require('lspconfig').gopls.setup {}
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
+
+  -- Various Go stuff
   {
     'ray-x/go.nvim',
     dependencies = { -- optional packages
@@ -247,6 +249,7 @@ require('lazy').setup({
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
 
+  -- Directory buffer
   {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v3.x',
@@ -272,6 +275,61 @@ require('lazy').setup({
           },
         },
       }
+    end,
+  },
+
+  -- Themes
+  {
+    'ray-x/starry.nvim',
+    config = function()
+      local config = {
+        --border = true, -- Split window borders
+        --hide_eob = false, -- Hide end of buffer
+        --italics = {
+        --  comments = false, -- Italic comments
+        --  strings = false, -- Italic strings
+        --  keywords = false, -- Italic keywords
+        --  functions = false, -- Italic functions
+        --  variables = false, -- Italic variables
+        --},
+
+        --        contrast = { -- Select which windows get the contrast background
+        --          enable = true, -- Enable contrast
+        --          terminal = true, -- Darker terminal
+        --          filetypes = {}, -- Which filetypes get darker? e.g. *.vim, *.cpp, etc.
+        --        },
+        --
+        --        text_contrast = {
+        --          lighter = false, -- Higher contrast text for lighter style
+        --          darker = false, -- Higher contrast text for darker style
+        --        },
+        --
+        --        disable = {
+        --          background = false, -- true: transparent background
+        --          term_colors = false, -- Disable setting the terminal colors
+        --          eob_lines = false, -- Make end-of-buffer lines invisible
+        --        },
+
+        style = {
+          name = 'emerald', -- Theme style name (moonlight, earliestsummer, etc.)
+          -- " other themes: dracula, oceanic, dracula_blood, 'deep ocean', darker, palenight, monokai, mariana, emerald, middlenight_blue
+          disable = {}, -- a list of styles to disable, e.g. {'bold', 'underline'}
+          fix = false,
+          darker_contrast = false, -- More contrast for darker style
+          daylight_swith = false, -- Enable day and night style switching
+          deep_black = false, -- Enable a deeper black background
+        },
+
+        custom_colors = {
+          --variable = '#a2f796',
+        },
+        --        custom_highlights = {
+        --          LineNr = { fg = '#777777' },
+        --          Idnetifier = { fg = '#ff4797' },
+        --        },
+      }
+      require('starry').setup(config)
+      require('starry.functions').change_style 'emerald'
     end,
   },
 
