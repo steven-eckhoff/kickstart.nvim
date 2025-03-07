@@ -283,8 +283,8 @@ require('lazy').setup({
     'ray-x/starry.nvim',
     config = function()
       local config = {
-        --border = true, -- Split window borders
-        --hide_eob = false, -- Hide end of buffer
+        border = true, -- Split window borders
+        -- hide_eob = true, -- Hide end of buffer
         --italics = {
         --  comments = false, -- Italic comments
         --  strings = false, -- Italic strings
@@ -311,25 +311,31 @@ require('lazy').setup({
         --        },
 
         style = {
-          name = 'emerald', -- Theme style name (moonlight, earliestsummer, etc.)
+          name = 'dracula_blood', -- Theme style name (moonlight, earliestsummer, etc.)
           -- " other themes: dracula, oceanic, dracula_blood, 'deep ocean', darker, palenight, monokai, mariana, emerald, middlenight_blue
           disable = {}, -- a list of styles to disable, e.g. {'bold', 'underline'}
-          fix = false,
-          darker_contrast = false, -- More contrast for darker style
-          daylight_swith = false, -- Enable day and night style switching
-          deep_black = false, -- Enable a deeper black background
+          fix = true,
+          --darker_contrast = false, -- More contrast for darker style
+          --daylight_swith = false, -- Enable day and night style switching
+          --deep_black = false, -- Enable a deeper black background
+        },
+        disable = {
+          term_colors = false, -- Must be false for borders
         },
 
         custom_colors = {
           --variable = '#a2f796',
         },
-        --        custom_highlights = {
-        --          LineNr = { fg = '#777777' },
-        --          Idnetifier = { fg = '#ff4797' },
-        --        },
+        custom_highlights = {
+          --          LineNr = { fg = '#777777' },
+          --          Idnetifier = { fg = '#ff4797' },
+          --                  -- For regular window splits (like vsplit)
+          --
+          WinSeparator = { fg = '#F931C4', bg = 'NONE', bold = true },
+        },
       }
       require('starry').setup(config)
-      require('starry.functions').change_style 'emerald'
+      vim.cmd.colorscheme 'starry'
     end,
   },
 
