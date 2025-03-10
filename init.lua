@@ -281,18 +281,29 @@ require('lazy').setup({
   },
 
   -- Themes
+  --  {
+  --    'ray-x/starry.nvim',
+  --    config = function()
+  --      local config = {
+  --        border = true,
+  --        style = {
+  --          name = 'dracula_blood',
+  --          fix = true,
+  --        },
+  --      }
+  --      require('starry').setup(config)
+  --      vim.cmd.colorscheme 'starry'
+  --    end,
+  --  },
   {
-    'ray-x/starry.nvim',
+    'rafamadriz/neon',
     config = function()
-      local config = {
-        border = true,
-        style = {
-          name = 'dracula_blood',
-          fix = true,
-        },
-      }
-      require('starry').setup(config)
-      vim.cmd.colorscheme 'starry'
+      require 'neon'
+      vim.g.neon_style = 'dark'
+      vim.g.neon_italic_keyword = false
+      vim.g.neon_italic_function = false
+      vim.g.neon_transparent = false
+      vim.cmd.colorscheme 'neon'
     end,
   },
   {
