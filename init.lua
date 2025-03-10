@@ -312,9 +312,10 @@ require('lazy').setup({
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'nightfly'
+      vim.cmd.colorscheme 'nightfly' -- Default theme
     end,
   },
+  { 'bluz71/vim-moonfly-colors', name = 'moonfly', lazy = false, priority = 1000 },
   {
     'ellisonleao/glow.nvim',
     config = true,
