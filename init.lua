@@ -295,15 +295,24 @@ require('lazy').setup({
   --      vim.cmd.colorscheme 'starry'
   --    end,
   --  },
+  -- {
+  --   'rafamadriz/neon',
+  --   config = function()
+  --     require 'neon'
+  --     vim.g.neon_style = 'dark'
+  --     vim.g.neon_italic_keyword = false
+  --     vim.g.neon_italic_function = false
+  --     vim.g.neon_transparent = false
+  --     --     vim.cmd.colorscheme 'neon'
+  --   end,
+  -- },
   {
-    'rafamadriz/neon',
+    'bluz71/vim-nightfly-colors',
+    name = 'nightfly',
+    lazy = false,
+    priority = 1000,
     config = function()
-      require 'neon'
-      vim.g.neon_style = 'dark'
-      vim.g.neon_italic_keyword = false
-      vim.g.neon_italic_function = false
-      vim.g.neon_transparent = false
-      vim.cmd.colorscheme 'neon'
+      vim.cmd.colorscheme 'nightfly'
     end,
   },
   {
