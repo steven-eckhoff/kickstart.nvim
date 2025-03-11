@@ -312,7 +312,7 @@ require('lazy').setup({
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'nightfly' -- Default theme
+      --vim.cmd.colorscheme 'nightfly' -- Default theme
     end,
   },
   { 'bluz71/vim-moonfly-colors', name = 'moonfly', lazy = false, priority = 1000 },
@@ -320,6 +320,22 @@ require('lazy').setup({
     'ellisonleao/glow.nvim',
     config = true,
     cmd = 'Glow',
+  },
+  {
+    'maxmx03/fluoromachine.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      local fm = require 'fluoromachine'
+
+      fm.setup {
+        glow = false,
+        theme = 'fluoromachine',
+        transparent = true,
+      }
+
+      vim.cmd.colorscheme 'fluoromachine'
+    end,
   },
 
   -- Status Line
@@ -427,6 +443,9 @@ require('lazy').setup({
       }
     end,
   },
+
+  -- Games
+  { 'alec-gibson/nvim-tetris' },
 
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
