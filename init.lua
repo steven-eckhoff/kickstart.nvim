@@ -330,6 +330,7 @@ require('lazy').setup({
 
       fm.setup {
         glow = false,
+        brightness = 0.05,
         theme = 'fluoromachine',
         transparent = true,
       }
