@@ -445,6 +445,14 @@ require('lazy').setup({
     end,
   },
 
+  -- Diagrams
+  {
+    'Groveer/plantuml.nvim',
+    config = function()
+      require('plantuml').setup { renderer = 'text' }
+    end,
+  },
+
   -- Games
   { 'alec-gibson/nvim-tetris' },
 
